@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    android:drawable="@drawable/ranmedia_splash_logo" xmlns:android="http://schemas.android.com/apk/res/android">
+    <target
+        android:animation="@animator/animator_splash"
+        android:name="ranmedia_splash_logo"/>
+</animated-vector>

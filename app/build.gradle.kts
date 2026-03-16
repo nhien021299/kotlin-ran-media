@@ -63,7 +63,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    
+
+    // Splash
+    implementation(libs.androidx.core.splashscreen)
+
     // Architecture & DI
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)

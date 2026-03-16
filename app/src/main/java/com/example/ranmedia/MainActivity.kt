@@ -15,13 +15,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.ranmedia.core.ui.components.CustomPrimaryButton
 import com.example.ranmedia.core.ui.theme.RanMediaAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    var isShowSplash = true
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen().apply {
+            setKeepOnScreenCondition { isShowSplash }
+        }
         super.onCreate(savedInstanceState)
         setContent {
             RanMediaAppTheme {
@@ -50,6 +59,10 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(1500)
+            isShowSplash = false
         }
     }
 }
